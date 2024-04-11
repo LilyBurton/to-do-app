@@ -1,24 +1,20 @@
-
 import './App.css'
+import TaskCard from './tasks'
 
 function App() {
-  const title = "ToDo List"
-  const task = "Clean the kitchen"
+  const title = "Walk the dog"
+  const notStarted = "Not Started"
+  const inProgress = "In Progress"
   const status = "Done"
   return (
-    <div className="border rounded-lg px-2 m-2 bg-stone-400">
-      <div className="text-base font-semibold py-2">
-        {title}
-      </div>
-      <div className="flex gap-4 justify-between py-2">
-        <div>{task}</div>
-        <div>{status}</div>
-      </div>
-      <div>
-        
-      </div>
-      
-    </div>
+  <>
+    <TaskCard title={title} notStarted={notStarted} inProgress={inProgress} status={status}/>
+    <TaskCard title="Buy Groceries" notStarted={notStarted} inProgress={inProgress} status={status}/>
+    <TaskCard title="Cook Food" notStarted={notStarted} inProgress={inProgress} status={status}/>
+    {/* {card (title, notStarted, inProgress, status)}
+    {card ("Cook food", notStarted, inProgress, status)}
+    {card ("Buy groceries", notStarted, inProgress, status)} */}
+  </>
   )
 }
 
