@@ -1,19 +1,21 @@
 import './App.css'
 import TaskCard from './tasks'
+import {Task} from './data-tasks'
 
 function App() {
-  const title = "Walk the dog"
-  const notStarted = "Not Started"
-  const inProgress = "In Progress"
-  const status = "Done"
+  const task: Task = {
+    title: "Walk the dog",
+    notStarted: "Not Started",
+    inProgress: "In Progress",
+    status: "Done"
+  }
+  
   return (
   <>
-    <TaskCard title={title} notStarted={notStarted} inProgress={inProgress} status={status}/>
-    <TaskCard title="Buy Groceries" notStarted={notStarted} inProgress={inProgress} status={status}/>
-    <TaskCard title="Cook Food" notStarted={notStarted} inProgress={inProgress} status={status}/>
-    {/* {card (title, notStarted, inProgress, status)}
-    {card ("Cook food", notStarted, inProgress, status)}
-    {card ("Buy groceries", notStarted, inProgress, status)} */}
+    <TaskCard task={task} />
+    {/* <TaskCard title="Buy Groceries" notStarted={notStarted} inProgress={inProgress} status={status}/>
+    <TaskCard title="Cook Food" notStarted={notStarted} inProgress={inProgress} status={status}/> */}
+    
   </>
   )
 }
