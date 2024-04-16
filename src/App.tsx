@@ -13,13 +13,17 @@ function App() {
   
   return (
   <>
-  <div className= "flex divide-y">
-    {columns.map((column) => (
-      <div>
-        <h1>{column.title}</h1>
-          {column.tasks.map((task) => <TaskCard task={task} />)}
+  <div className= "app-container">
+  {columns.map((column) => (
+  column.tasks.length > 0 && (
+    <div key={column.title}> {/* Ensure each column has a unique key */}
+      <h1 className="text-3xl p-2">{column.title}</h1>
+      <div className="task-container">
+        {column.tasks.map((task) => <TaskCard task={task} key={task.title} />)}
       </div>
-    ))}
+    </div>
+  )
+))}
   </div>
     
   </>
