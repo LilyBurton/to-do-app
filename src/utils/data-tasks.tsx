@@ -1,33 +1,43 @@
+export type Status = 'ToDo' | 'In Progress' | 'Done'
+
 export type Task = {
   title: string,
-  notStarted: string,
-  inProgress: string,
-  status: string
+  status: Status
 }
+
+export const statuses: Status[] = ['ToDo', 'In Progress', 'Done']
 
 export const tasks: Task[] = [
   {
     title: "Walk the dog",
-    notStarted: "Not Started",
-    inProgress: "In Progress",
-    status: "Done"
+    status: 'ToDo'
   },
   {
     title: "Buy Groceries",
-    notStarted: "Not Started",
-    inProgress: "In Progress",
-    status: "Done"
+    status: 'ToDo'
   },
   {
     title: "Cook Food",
-    notStarted: "Not Started",
-    inProgress: "In Progress",
-    status: "Done"
+    status: 'In Progress'
   },
   {
     title: "Exercise",
-    notStarted: "Not Started",
-    inProgress: "In Progress",
-    status: "Done"
+    status: 'Done'
+  },
+  {
+    title: "Make a video",
+    status: 'ToDo'
+  },
+  {
+    title: "Hoover the living room",
+    status: 'In Progress'
+  },
+  {
+    title: "Do the laundry",
+    status: 'Done'
+  },
+  {
+    title: 'Plant flowers',
+    status: 'In Progress'
   }
 ]
