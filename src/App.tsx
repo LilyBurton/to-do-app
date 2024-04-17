@@ -13,17 +13,16 @@ function App() {
   
   return (
   <>
-  <div className= "app-container">
+  <div className= "flex divide-x px-20 py-5">
   {columns.map((column) => (
-  column.tasks.length > 0 && (
-    <div key={column.title}> {/* Ensure each column has a unique key */}
+    <div>
       <h1 className="text-3xl p-2">{column.title}</h1>
-      <div className="task-container">
+      <div className="flex gap-4 justify-between py-2">
         {column.tasks.map((task) => <TaskCard task={task} key={task.title} />)}
       </div>
     </div>
   )
-))}
+)}
   </div>
     
   </>
