@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import './App.css';
 import TaskCard from './components/TaskCard';
-import { tasks as initialTasks, statuses, Task } from './utils/data-tasks';
+import { tasks as initialTasks, statuses, Task, Priority, priorities } from './utils/data-tasks';
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const [newTaskTitle, setNewTaskTitle] = useState<string>('')
+  const [newTaskPriority, setNewTaskPriority] = useState<Priority>('Low')
+
+  const handleAddTask = () => {
+    if (newTaskTitle.trim() !== '') {
+      const newTask: Task = {
+        title: newTaskTitle,
+        status: 'ToDo',
+        priority: newTaskPriority,
+      }
+      setTasks([...tasks, newTask])
+      setNewTaskTitle('')
+      setNewTaskPriority('Low')
+    }
+  }
   const columns = statuses.map((status) => {
     const tasksInColumn = tasks.filter((task) => task.status === status);
     return {
@@ -37,6 +52,25 @@ function App() {
   return (
     <>
       <div className="flex divide-x px-20 py-5">
+      <div className="flex flex-col items-center mt-4">
+          Task: <input 
+          type= "text"
+          className="border-solid border-2 border-black rounded-md p-2 mr-2 w-48 h-6 text-sm"
+          placeholder="Enter Task Here: " 
+          value={newTaskTitle}
+          onChange={(e) => setNewTaskTitle(e.target.value)} style={{ marginBottom: '8px' }}/>
+          <select 
+          className='border border-black rounded-md mr-2 w-48 h-15'
+          value={(newTaskPriority)}
+          onChange={(e) => setNewTaskPriority(e.target.value as Priority)} style={{ marginBottom: '8px' }} >
+            {priorities.map(priority => (
+            <option key={priority} value={priority}>{priority}</option>
+          ))}
+          </select>
+          <button className="bg-blue-500 text-white px-4 py-2 mr-2 w-48 h-6 rounded flex items-center" onClick={handleAddTask}>
+          <span className='mx-auto'>Add Task</span> 
+          </button>
+        </div>
         {columns.map((column) => (
           <div onDrop={(e) => handleDrop(e, column.title)} onDragOver={(e) => e.preventDefault()}>
             <h1 className="text-3xl p-2">{column.title}</h1>
