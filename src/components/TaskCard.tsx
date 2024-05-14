@@ -34,7 +34,7 @@ const TaskCard = ({ task, updateTaskTitle }: {
     <div 
     draggable 
     onDragStart={handleDragStart}
-    className={`border rounded-lg px-2 m-2 ${backgroundColorClass}`}>
+    className={`border rounded-lg px-2 m-2 w-50 ${backgroundColorClass}`}>
       <div className="text-base font-semibold py-2">
         {isEditingTitle ? (
           <input

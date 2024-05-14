@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import TaskCard from './components/TaskCard';
-import { tasks as initialTasks, statuses, Task, Priority, priorities } from './utils/data-tasks';
+import TaskCard from './TaskCard';
+import { tasks as initialTasks, statuses, Task, Priority, priorities } from '../utils/data-tasks';
 
-function App() {
+function TaskBoard() {
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const [newTaskTitle, setNewTaskTitle] = useState<string>('')
   const [newTaskPriority, setNewTaskPriority] = useState<Priority>('Low')
@@ -110,4 +110,4 @@ function App() {
   );
 }
 
-export default App;
+export default TaskBoard;
